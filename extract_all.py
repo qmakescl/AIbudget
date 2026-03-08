@@ -42,7 +42,10 @@ def parse_number(s: str | None) -> float | None:
         return None
 
     negative = False
-    if s.startswith("△") or s.startswith("▽"):
+    # △(U+25B3), ▽(U+25BD): 일반 삼각형
+    # ▵(U+25B5): 소삼각형 (경찰청 등 일부 PDF)
+    # ∆(U+2206): 증분기호 (산업통상부 등 일부 PDF)
+    if s.startswith(("△", "▽", "▵", "∆")):
         negative = True
         s = s[1:]
 
@@ -74,6 +77,7 @@ _HEADER_KEYWORDS = [
     "목명", "목별", "계획", "정부안", "확정", "이관",
     "사업구조", "구조개편", "기능별", "내역사업",
     "현액", "집행액", "불용액", "이월액", "당초", "수정",
+    "월말",  # 집행현황 표의 날짜 헤더 (예: "2025('25.7월말)")
 ]
 
 
@@ -126,12 +130,22 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
     if budget_start is None:
         return result
 
+    # 헤더 텍스트에서 열 구조 감지 (총괄표 이후 20줄 스캔)
+    header_context = "\n".join(lines[budget_start: min(budget_start + 20, len(lines))])
+    _has_추경 = "추경" in header_context
+    _has_요구 = any(kw in header_context for kw in ["요구안", "요구"])
+
     # 예산 총괄표 ~ 다음 섹션 사이의 데이터 행만 수집
     # 헤더 키워드가 포함된 행과 빈 행은 건너뜀
     # 사업명 텍스트가 포함된 행도 사업명 행이므로 별도 처리
     
     # 사업명에서 숫자 토큰 추출 (이 숫자들은 예산 금액이 아님)
+    # 정수("3"), 소수("3.0") 모두 포함 — "닥터앤서3.0" 같이 소수가 있는 이름 대응
     _name_numbers = set(re.findall(r"\d+", project_name))
+    for _t in re.findall(r"[\d,]+\.?\d*", project_name):
+        _cleaned = _t.replace(",", "")
+        if _cleaned:  # 빈 문자열 제외 (쉼표만 있는 토큰 방지)
+            _name_numbers.add(_cleaned)
     # 사업명을 공백·괄호 제거하여 매칭 키 생성
     _name_key = re.sub(r"[\s\(\)（）]", "", project_name)
 
@@ -161,6 +175,13 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
             # □: 데이터를 이미 수집한 경우에만 중단
             if use_break and line.startswith("□") and collected:
                 break
+            # ○ 접두어 행: 집행현황 표 섹션 경계 — 헤더 체크보다 먼저 처리
+            # (예: "○기능별 분류(계)"는 "기능별" 키워드로 _is_header_line에서 먼저 걸리므로
+            #  ○ break를 헤더 체크 앞에 배치해야 작동)
+            if line.startswith("○") or line.startswith("‧"):
+                if collected:
+                    break
+                continue
             # 헤더 행 건너뛰기
             if _is_header_line(line):
                 continue
@@ -173,8 +194,8 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
             # 꺾쇠·주석 메타 행 건너뛰기
             if line.startswith("<") or line.startswith("※") or line.startswith("* "):
                 continue
-            # ○ 접두어 행 건너뛰기 (○기능별 분류 등)
-            if line.startswith("○") or line.startswith("․"):
+            # 사업코드 행 건너뛰기: (2047-500) 같은 (숫자-숫자) 형태
+            if re.match(r"^\(\d[\d\-]*\)$", line):
                 continue
             # 2차 시도에서만: 한글 문장 행(15자 이상) 건너뛰기
             if not use_break:
@@ -185,6 +206,12 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
             line_key = re.sub(r"[\s\(\)（）]", "", line)
             if len(_name_key) >= 6 and _name_key[:6] in line_key:
                 continue
+            # 역방향 체크: 라인이 사업명의 부분 문자열이고 숫자가 있으면 건너뜀
+            # (긴 사업명이 2줄 이상으로 분리될 때 두 번째 줄 방어)
+            # 예: "조성(닥터앤서3.0)" → "조성닥터앤서3.0" ⊂ 전체 _name_key
+            # 단, 숫자 없는 행(지식재산처 쉼표 행 등)은 건너뛰지 않음
+            if len(line_key) >= 4 and line_key in _name_key and re.search(r"\d", line_key):
+                continue
             collected.append(line)
         return collected
 
@@ -192,7 +219,7 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
         """데이터 행에서 예산 숫자를 추출합니다.
         '-' 단독은 해당 연도에 예산이 없음을 뜻합니다 (DASH 마커).
         """
-        num_pattern = re.compile(r"[△▽]?[\d,]+\.?\d*|순증|순감|신규")
+        num_pattern = re.compile(r"[△▽▵∆]?[\d,]+\.?\d*|순증|순감|신규")
         nums = []
         for line in d_lines:
             # '-' 단독 (예산 없음 표시)
@@ -224,7 +251,11 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
         data_lines = _collect_data_lines(budget_start + 1, 80, use_break=False)
         raw_numbers = _extract_numbers(data_lines)
 
-    # 헤더 구조: 2024결산 | 2025본예산 | 2025추경(A) | 2026요구안 | 2026본예산(B) | 증감(B-A) | 증감률
+    # 헤더 구조:
+    #   7열: 2024결산 | 2025본예산 | 2025추경(A) | 2026요구안 | 2026본예산(B) | 증감(B-A) | 증감률
+    #   6열: 2024결산 | 2025본예산 | 2025추경(A) | 2026본예산(B) | 증감(B-A) | 증감률
+    #        (요구안 없거나, 2025추경 없고 2026요구안 있는 부처별 변형 포함)
+    #   5열: 2024결산 | 2025본예산 | 2026본예산 | 증감 | 증감률
     if len(raw_numbers) >= 7:
         nums = raw_numbers[:7]
         result["budget_2024"] = _parse_token(nums[0])
@@ -234,11 +265,27 @@ def extract_budget_summary(text: str, project_name: str) -> dict:
         result["budget_2026"] = _parse_token(nums[4])
         result["change_amount"] = _parse_token(nums[5])
         result["change_rate"] = _parse_token(nums[6])
+    elif len(raw_numbers) >= 6:
+        # 6열 구조: 추경 또는 요구안 중 하나가 없는 부처별 변형
+        # 공통: [2024, 2025, X, 2026(B), 증감(B-A), 증감률]
+        # X = 추경(A) 이면 budget_2025_sup, X = 요구안이면 budget_2026_req
+        nums = raw_numbers[:6]
+        result["budget_2024"] = _parse_token(nums[0])
+        result["budget_2025"] = _parse_token(nums[1])
+        if _has_요구 and not _has_추경:
+            # 6열 B: 추경 없고 요구안만 있는 구조
+            result["budget_2026_req"] = _parse_token(nums[2])
+        else:
+            # 6열 A: 추경 있는 구조 (기본값)
+            result["budget_2025_sup"] = _parse_token(nums[2])
+        result["budget_2026"] = _parse_token(nums[3])
+        result["change_amount"] = _parse_token(nums[4])
+        result["change_rate"] = _parse_token(nums[5])
     elif len(raw_numbers) >= 5:
+        # 5열 구조: 추경·요구안 없음 (budget_2025_sup은 없는 것으로 처리)
         nums = raw_numbers[:5]
         result["budget_2024"] = _parse_token(nums[0])
         result["budget_2025"] = _parse_token(nums[1])
-        result["budget_2025_sup"] = _parse_token(nums[1])
         result["budget_2026"] = _parse_token(nums[2])
         result["change_amount"] = _parse_token(nums[3])
         result["change_rate"] = _parse_token(nums[4])
@@ -289,6 +336,84 @@ def extract_description(text: str) -> str | None:
     return " ".join(desc_lines)
 
 
+def _col_x_mid(words, col_name):
+    """단어 목록에서 열 이름의 x 중심과 하단 y를 반환합니다.
+    '신규계속완료'처럼 합쳐진 단어도 문자 비례로 처리합니다.
+    """
+    for w in words:
+        text = w[4]
+        if text == col_name:
+            return (w[0] + w[2]) / 2, w[3]
+        if col_name in text:
+            idx = text.index(col_name)
+            ratio_start = idx / len(text)
+            ratio_end = (idx + len(col_name)) / len(text)
+            w_width = w[2] - w[0]
+            x0 = w[0] + w_width * ratio_start
+            x1 = w[0] + w_width * ratio_end
+            return (x0 + x1) / 2, w[3]
+    return None, None
+
+
+def extract_is_new_from_pdf(doc, local_start: int, local_end: int) -> bool:
+    """
+    사업 성격 표에서 신규 여부를 PDF 위치 정보로 추출합니다.
+    '신규' 열 헤더와 가장 가까운 x 위치에 '○'가 있으면 신규 사업으로 판단합니다.
+    '신규계속완료'처럼 합쳐진 단어도 문자 비례로 열 위치를 추정합니다.
+    """
+    for p_idx in range(local_start, min(local_end + 1, len(doc))):
+        page = doc[p_idx]
+        words = page.get_text("words")
+        # words: [(x0, y0, x1, y1, "text", block_no, line_no, word_no), ...]
+        if not words:
+            continue
+
+        # "사업 성격" 섹션 y 위치 찾기
+        section_y = None
+        for w in words:
+            if "성격" in w[4]:
+                section_y = w[1]
+                break
+        if section_y is None:
+            continue
+
+        # 섹션 테이블 영역: section_y 이후 100pt 이내
+        table_words = [w for w in words if section_y <= w[1] <= section_y + 100]
+
+        # '신규' / '계속' 헤더 x 중심 추출 (합쳐진 단어 포함)
+        sg_x_mid, sg_y_bottom = _col_x_mid(table_words, "신규")
+        if sg_x_mid is None:
+            continue
+        gs_x_mid, _ = _col_x_mid(table_words, "계속")
+
+        # '신규' 헤더 아래의 ○ 후보
+        # PDF에 따라 '○' (U+25CB) 또는 'O' (대문자) 로 추출될 수 있음
+        circle_candidates = [
+            w for w in table_words
+            if w[4] in ("○", "O", "0") and w[1] >= sg_y_bottom - 2
+        ]
+
+        for c in circle_candidates:
+            c_x_mid = (c[0] + c[2]) / 2
+            dist_to_sg = abs(c_x_mid - sg_x_mid)
+
+            if gs_x_mid is not None:
+                dist_to_gs = abs(c_x_mid - gs_x_mid)
+                if dist_to_sg < dist_to_gs:
+                    return True
+            else:
+                # '계속' 헤더가 없으면 신규 x 범위 내에 있으면 신규
+                # 열 너비는 신규/계속/완료가 균등 분할된 너비로 추정
+                for w in table_words:
+                    if "신규" in w[4] and "계속" in w[4]:
+                        col_width = (w[2] - w[0]) / len(w[4]) * len("신규")
+                        if dist_to_sg <= col_width * 1.5:
+                            return True
+                        break
+
+    return False
+
+
 def extract_budget_by_table(pdf_path: str, local_start: int, local_end: int) -> dict:
     """pdfplumber를 사용하여 시각적 표에서 예산 데이터를 추출합니다.
     
@@ -301,6 +426,11 @@ def extract_budget_by_table(pdf_path: str, local_start: int, local_end: int) -> 
         "change_amount": None, "change_rate": None,
     }
     
+    def _pt(t):
+        if t == "DASH":
+            return None
+        return parse_number(t)
+
     try:
         with pdfplumber.open(pdf_path) as pdf:
             for pi in range(local_start, min(local_end + 1, len(pdf.pages))):
@@ -316,19 +446,28 @@ def extract_budget_by_table(pdf_path: str, local_start: int, local_end: int) -> 
                     all_text = " ".join(str(c) for row in table for c in row if c)
                     if "2026" not in all_text:
                         continue
-                    
+
+                    # 헤더에서 사업명/목명 열 인덱스 찾기 (해당 열은 데이터 수집 시 건너뜀)
+                    name_col_idx = None
+                    for col_idx, cell in enumerate(table[0]):
+                        if cell and ("목명" in str(cell) or "사업명" in str(cell)):
+                            name_col_idx = col_idx
+                            break
+
                     # 마지막 데이터 행 사용 (첫 행은 헤더)
                     data_row = table[-1]
-                    # 셀에서 숫자 추출
+                    # 셀에서 숫자 추출 (사업명 열 제외)
                     values = []
-                    for cell in data_row:
+                    for col_idx, cell in enumerate(data_row):
+                        if col_idx == name_col_idx:
+                            continue  # 사업명/목명 열 건너뛰기
                         if cell is None or str(cell).strip() == "":
                             values.append("DASH")
                         else:
                             cell_str = str(cell).strip().replace("\n", " ")
                             if cell_str == "-" or cell_str == "":
                                 values.append("DASH")
-                            elif cell_str in ("순증", "순감"):
+                            elif cell_str in ("순증", "순감", "신규"):
                                 values.append(cell_str)
                             else:
                                 # 숫자 추출
@@ -336,13 +475,7 @@ def extract_budget_by_table(pdf_path: str, local_start: int, local_end: int) -> 
                                 if nums:
                                     values.append(nums[0])
                                 else:
-                                    pass  # 사업명 등 텍스트는 무시
-                    
-                    # 값 매핑 (첫 번째는 사업명이므로 제외하고 나머지)
-                    def _pt(t):
-                        if t == "DASH":
-                            return None
-                        return parse_number(t)
+                                    pass  # 텍스트만 있는 셀 무시
                     
                     if len(values) >= 7:
                         result["budget_2024"] = _pt(values[0])
@@ -352,6 +485,13 @@ def extract_budget_by_table(pdf_path: str, local_start: int, local_end: int) -> 
                         result["budget_2026"] = _pt(values[4])
                         result["change_amount"] = _pt(values[5])
                         result["change_rate"] = _pt(values[6])
+                    elif len(values) >= 6:
+                        result["budget_2024"] = _pt(values[0])
+                        result["budget_2025"] = _pt(values[1])
+                        result["budget_2025_sup"] = _pt(values[2])
+                        result["budget_2026"] = _pt(values[3])
+                        result["change_amount"] = _pt(values[4])
+                        result["change_rate"] = _pt(values[5])
                     elif len(values) >= 5:
                         result["budget_2024"] = _pt(values[0])
                         result["budget_2025"] = _pt(values[1])
@@ -419,13 +559,8 @@ def extract_all_projects() -> pd.DataFrame:
                 if desc:
                     success_desc += 1
 
-                # 신규사업 판별: 2024·2025 예산이 모두 없고 2026만 있는 경우
-                is_new = (
-                    budget["budget_2024"] is None
-                    and budget["budget_2025"] is None
-                    and (budget["budget_2025_sup"] is None or budget["budget_2025_sup"] == 0)
-                    and budget["budget_2026"] is not None
-                )
+                # 신규사업 판별: 사업 성격 표의 '신규' 열 ○ 표시 기반
+                is_new = extract_is_new_from_pdf(doc, local_start, local_end)
 
                 rows.append({
                     "dept_name": dept_name,
