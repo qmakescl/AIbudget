@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 AI 예산 대시보드</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🤖</text></svg>"
+        type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qmakescl.github.io/AIbudget/dashboard/">
+    <meta property="og:title" content="2026 정부 AI 예산 대시보드">
+    <meta property="og:description" content="41개 부처, 533개 사업 통합 분석 - 2026년 정부 AI 예산 현황을 한눈에 파악하세요.">
+    <meta property="og:image" content="https://qmakescl.github.io/AIbudget/dashboard/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="2026 정부 AI 예산 대시보드">
+    <meta property="twitter:description" content="41개 부처, 533개 사업 통합 분석 - 2026년 정부 AI 예산 현황을 한눈에 파악하세요.">
+    <meta property="twitter:image" content="https://qmakescl.github.io/AIbudget/dashboard/og-image.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header glass-panel">
+            <div>
+                <h1>2026 정부 AI 예산 대시보드</h1>
+                <p class="subtitle">41개 부처, 533개 사업 통합 분석</p>
+            </div>
+            <button id="themeToggle" class="theme-toggle" title="테마 전환">
+                <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+            </button>
+        </header>
+
+        <!-- KPI Cards -->
+        <section class="kpi-grid">
+            <div class="kpi-card glass-panel fade-in" style="animation-delay: 0.1s;">
+                <h3 class="kpi-title">2026 총 예산</h3>
+                <div class="kpi-value" id="kpi-total-budget">-</div>
+                <div class="kpi-trend trend-up" id="kpi-trend-budget">-</div>
+            </div>
+            <div class="kpi-card glass-panel fade-in" style="animation-delay: 0.2s;">
+                <h3 class="kpi-title">전체 사업 수</h3>
+                <div class="kpi-value" id="kpi-total-projects">-</div>
+                <div class="kpi-detail">41개 부처</div>
+            </div>
+            <div class="kpi-card glass-panel fade-in" style="animation-delay: 0.3s;">
+                <h3 class="kpi-title">신규 사업</h3>
+                <div class="kpi-value indicator-new" id="kpi-new-projects">-</div>
+                <div class="kpi-detail">전체 사업의 <span id="kpi-new-ratio">-</span>%</div>
+            </div>
+            <div class="kpi-card glass-panel fade-in" style="animation-delay: 0.4s;">
+                <h3 class="kpi-title">예산 증감</h3>
+                <div class="kpi-split">
+                    <div class="trend-up">▲ <span id="kpi-inc-count">-</span>건</div>
+                    <div class="trend-down">▼ <span id="kpi-dec-count">-</span>건</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav glass-panel fade-in" style="animation-delay: 0.5s;">
+            <button class="tab-btn active" data-tab="all"><i class="bi bi-bar-chart-line"></i> 전체사업</button>
+            <button class="tab-btn" data-tab="new"><i class="bi bi-plus-circle"></i> 신규사업</button>
+            <button class="tab-btn" data-tab="increase"><i class="bi bi-graph-up-arrow"></i> 예산 증가</button>
+            <button class="tab-btn" data-tab="decrease"><i class="bi bi-graph-down-arrow"></i> 예산 감소</button>
+        </nav>
+
+        <!-- ========== TAB: 전체사업 ========== -->
+        <div id="tab-all" class="tab-content active">
+            <section class="charts-section grid-layout">
+                <div class="chart-container glass-panel col-span-2 fade-in">
+                    <h2 class="section-title">부처별 예산 규모</h2>
+                    <div style="height: 400px; width: 100%;">
+                        <canvas id="deptBudgetChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container glass-panel fade-in">
+                    <h2 class="section-title">예산 변동 비율</h2>
+                    <div style="height: 300px; width: 100%; position: relative;">
+                        <canvas id="budgetChangeChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container glass-panel fade-in">
+                    <h2 class="section-title">신규 사업 비율 (건수)</h2>
+                    <div style="height: 300px; width: 100%; position: relative;">
+                        <canvas id="newProjectChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="drilldown-section">
+                <div class="drilldown-header glass-panel">
+                    <h2 class="section-title">부처별 상세 분석</h2>
+                    <select id="deptSelect" class="dept-select">
+                        <option value="all">모든 부처</option>
+                    </select>
+                </div>
+                <div class="grid-layout mt-4">
+                    <div class="chart-container glass-panel col-span-2 mb-4">
+                        <h2 class="section-title">연도별 추이 <span class="text-sm">(상위 10개 사업)</span></h2>
+                        <div style="height: 400px; width: 100%;">
+                            <canvas id="yearlyTrendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-2">
+                        <div class="table-header-controls">
+                            <h2 class="section-title">사업 목록</h2>
+                            <input type="text" id="searchInput" placeholder="사업명 검색..." class="search-input">
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th>사업명</th>
+                                        <th class="text-right">2024 결산<br><small>(억원)</small></th>
+                                        <th class="text-right">2025 예산<br><small>(억원)</small></th>
+                                        <th class="text-right">2026 예산<br><small>(억원)</small></th>
+                                        <th class="text-right">증감(%)</th>
+                                        <th class="text-center">구분</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="projectsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========== TAB: 신규사업 ========== -->
+        <div id="tab-new" class="tab-content">
+            <section class="category-section">
+                <div class="drilldown-header glass-panel">
+                    <h2 class="section-title text-green"><i class="bi bi-plus-circle"></i> 신규사업 상세 분석</h2>
+                    <div class="cat-kpi-row">
+                        <span id="new-total-count" class="cat-kpi-badge cat-badge-green">-</span>
+                        <span id="new-total-budget" class="cat-kpi-badge cat-badge-green">-</span>
+                    </div>
+                </div>
+                <div class="grid-layout mt-4">
+                    <div class="chart-container glass-panel col-span-2 mb-4">
+                        <h2 class="section-title">부처별 신규사업 예산 <span class="text-sm">(억원)</span></h2>
+                        <div style="height: 400px; width: 100%;">
+                            <canvas id="newBudgetByDeptChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-1">
+                        <h2 class="section-title">부처별 신규사업 현황</h2>
+                        <div class="table-wrapper" style="max-height: 350px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th class="text-right">신규</th>
+                                        <th class="text-right">전체</th>
+                                        <th class="text-right">비율</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="newDeptSummaryBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="chart-container glass-panel col-span-1">
+                        <h2 class="section-title">Top 10 신규사업 <span class="text-sm">(예산 규모)</span></h2>
+                        <div style="height: 350px; width: 100%;">
+                            <canvas id="newTopProjectsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-2">
+                        <div class="table-header-controls">
+                            <h2 class="section-title">신규사업 목록</h2>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <select id="newDeptSelect" class="dept-select">
+                                    <option value="all">모든 부처</option>
+                                </select>
+                                <input type="text" id="newSearchInput" placeholder="신규사업 검색..." class="search-input">
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th>사업명</th>
+                                        <th class="text-right">2026 예산<br><small>(억원)</small></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="newProjectsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========== TAB: 예산 증가 ========== -->
+        <div id="tab-increase" class="tab-content">
+            <section class="category-section">
+                <div class="drilldown-header glass-panel">
+                    <h2 class="section-title text-blue"><i class="bi bi-graph-up-arrow"></i> 예산 증가 사업 상세 분석</h2>
+                    <div class="cat-kpi-row">
+                        <span id="inc-total-count" class="cat-kpi-badge cat-badge-blue">-</span>
+                        <span id="inc-total-budget" class="cat-kpi-badge cat-badge-blue">-</span>
+                    </div>
+                </div>
+                <div class="grid-layout mt-4">
+                    <div class="chart-container glass-panel col-span-2 mb-4">
+                        <h2 class="section-title">부처별 예산 증가액 <span class="text-sm">(억원)</span></h2>
+                        <div style="height: 400px; width: 100%;">
+                            <canvas id="incBudgetByDeptChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-1">
+                        <h2 class="section-title">부처별 증가사업 현황</h2>
+                        <div class="table-wrapper" style="max-height: 350px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th class="text-right">증가</th>
+                                        <th class="text-right">전체</th>
+                                        <th class="text-right">비율</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="incDeptSummaryBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="chart-container glass-panel col-span-1">
+                        <h2 class="section-title">Top 10 증가사업 <span class="text-sm">(증가액 규모)</span></h2>
+                        <div style="height: 350px; width: 100%;">
+                            <canvas id="incTopProjectsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-2">
+                        <div class="table-header-controls">
+                            <h2 class="section-title">예산 증가 사업 목록</h2>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <select id="incDeptSelect" class="dept-select">
+                                    <option value="all">모든 부처</option>
+                                </select>
+                                <input type="text" id="incSearchInput" placeholder="사업명 검색..." class="search-input">
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th>사업명</th>
+                                        <th class="text-right">2025 예산<br><small>(억원)</small></th>
+                                        <th class="text-right">2026 예산<br><small>(억원)</small></th>
+                                        <th class="text-right">증가액<br><small>(억원)</small></th>
+                                        <th class="text-right">증가율</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="incProjectsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========== TAB: 예산 감소 ========== -->
+        <div id="tab-decrease" class="tab-content">
+            <section class="category-section">
+                <div class="drilldown-header glass-panel">
+                    <h2 class="section-title text-red"><i class="bi bi-graph-down-arrow"></i> 예산 감소 사업 상세 분석</h2>
+                    <div class="cat-kpi-row">
+                        <span id="dec-total-count" class="cat-kpi-badge cat-badge-red">-</span>
+                        <span id="dec-total-budget" class="cat-kpi-badge cat-badge-red">-</span>
+                    </div>
+                </div>
+                <div class="grid-layout mt-4">
+                    <div class="chart-container glass-panel col-span-2 mb-4">
+                        <h2 class="section-title">부처별 예산 감소액 <span class="text-sm">(억원)</span></h2>
+                        <div style="height: 400px; width: 100%;">
+                            <canvas id="decBudgetByDeptChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-1">
+                        <h2 class="section-title">부처별 감소사업 현황</h2>
+                        <div class="table-wrapper" style="max-height: 350px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th class="text-right">감소</th>
+                                        <th class="text-right">전체</th>
+                                        <th class="text-right">비율</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="decDeptSummaryBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="chart-container glass-panel col-span-1">
+                        <h2 class="section-title">Top 10 감소사업 <span class="text-sm">(감소액 규모)</span></h2>
+                        <div style="height: 350px; width: 100%;">
+                            <canvas id="decTopProjectsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="table-container glass-panel col-span-2">
+                        <div class="table-header-controls">
+                            <h2 class="section-title">예산 감소 사업 목록</h2>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <select id="decDeptSelect" class="dept-select">
+                                    <option value="all">모든 부처</option>
+                                </select>
+                                <input type="text" id="decSearchInput" placeholder="사업명 검색..." class="search-input">
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>부처</th>
+                                        <th>사업명</th>
+                                        <th class="text-right">2025 예산<br><small>(억원)</small></th>
+                                        <th class="text-right">2026 예산<br><small>(억원)</small></th>
+                                        <th class="text-right">감소액<br><small>(억원)</small></th>
+                                        <th class="text-right">감소율</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="decProjectsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>데이터 출처: <a
+                    href="https://www.aikorea.go.kr/web/board/brdDetail.do?menu_cd=000011&num=359&currentPage=1&searchData=&searchText="
+                    target="_blank" rel="noopener">국가인공지능전략위원회 — AI 예산사업 통합 설명자료</a></p>
+            <p>※ 자동 추출된 데이터로 일부 오차가 있을 수 있습니다.</p>
+        </footer>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

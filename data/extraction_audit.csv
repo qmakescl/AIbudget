@@ -1,0 +1,534 @@
+﻿dept_name,project_no,project_name,extraction_method,column_count,cross_validation,validation_flags
+감사원,1,전산운영경비(정보화),pdfplumber,8,MATCH,OK
+개인정보보호위원회,2,개인정보 안전활용 선도기술 개발(R&D),pdfplumber,8,MATCH,OK
+개인정보보호위원회,3,신뢰기반의 AI 개인정보 보호·활용 기술개발(R&D),pdfplumber,8,MATCH,OK
+개인정보보호위원회,4,안전한 데이터 활용 지원,pdfplumber,8,MATCH,OK
+경찰청,5,112시스템운영(정보화),pdfplumber,8,"MISMATCH(plumber=21372.0,pymupdf=20916.0)",OK
+경찰청,6,경찰정보화기반고도화(정보화),pdfplumber,8,MATCH,OK
+경찰청,7,과학기술 기반 군중밀집 관리 기술 개발(R&D),pdfplumber,7,MATCH,OK
+경찰청,8,과학수사시스템구축(정보화),pdfplumber,8,MATCH,OK
+경찰청,9,과학적 범죄수사 고도화 기술 개발(R&D),pdfplumber,7,MATCH,OK
+경찰청,10,불법 마약류 대응을 위한 현장기술 개발(R&D),pdfplumber,7,MATCH,"V3:RATE_MISMATCH(expected=228.8%,got=222.8%)"
+경찰청,11,사이버범죄수사단서통합분석및추론시스템개발(R&D),pdfplumber,7,MATCH,OK
+경찰청,12,사이버수사 지원기술 개발(R&D),pdfplumber,7,MATCH,OK
+경찰청,13,차세대지능형순찰플랫폼개발(R&D),pdfplumber,7,MATCH,OK
+경찰청,14,치안데이터활용기술개발(R&D),pdfplumber,7,MATCH,OK
+경찰청,15,형사·교통여성·청소년범죄수사역량강화,pdfplumber,8,MATCH,OK
+고용노동부,16,고용노동행정(정보화),pdfplumber,7,MATCH,OK
+고용노동부,17,내일배움카드(고보),pdfplumber,8,MATCH,OK
+고용노동부,18,내일배움카드(일반),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=31164,got=47164)|V3:RATE_MISMATCH(expected=5.2%,got=8.1%)"
+고용노동부,19,노동위원회정보화운영(정보화),pdfplumber,8,"MISMATCH(plumber=5626.0,pymupdf=2959.0)","V2:ARITHMETIC_MISMATCH(expected=-1650,got=-4317)|V3:RATE_MISMATCH(expected=-22.7%,got=-59.3%)"
+고용노동부,20,디지털 기반의 고용서비스 인프라 지원(정보화),pdfplumber,8,MATCH,OK
+고용노동부,21,미래환경변화 대응 산업안전보건 연구개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+고용노동부,22,사업주직업훈련지원금,pdfplumber,8,MATCH,OK
+고용노동부,23,일자리정보플랫폼 기반 AI 고용서비스 지원(정보화),pdfplumber,8,"MISMATCH(plumber=9601.0,pymupdf=11101.0)","V2:ARITHMETIC_MISMATCH(expected=2094,got=3594)|V3:RATE_MISMATCH(expected=27.9%,got=47.9%)"
+고용노동부,24,직업능력개발담당자양성 및 훈련매체개발,pdfplumber,8,"MISMATCH(plumber=78970.0,pymupdf=82080.0)","V2:ARITHMETIC_MISMATCH(expected=3192,got=6302)|V3:RATE_MISMATCH(expected=4.2%,got=8.3%)"
+고용노동부,25,직업능력개발심사평가,pdfplumber,8,MATCH,OK
+고용노동부,26,취약노동자지원,pdfplumber,8,"MISMATCH(plumber=14795.0,pymupdf=25345.0)","V2:ARITHMETIC_MISMATCH(expected=-1194,got=9356)|V3:RATE_MISMATCH(expected=-7.5%,got=58.5%)"
+과학기술정보통신부,27,4대지역외 AX 대전환 기획,pdfplumber,8,MATCH,OK
+과학기술정보통신부,28,AGI 준비 프로젝트,pdfplumber,8,MATCH,OK
+과학기술정보통신부,29,AI AGENT 선도 국가 사업,pdfplumber,8,MATCH,OK
+과학기술정보통신부,30,AI 공간 컴퓨팅 창업 생태계 활성화,pdfplumber,8,MATCH,OK
+과학기술정보통신부,31,AI 기반 뇌발달질환 디지털의료기기 실증지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,32,AI 기반 민군 유·무인복합체계 주파수 공동사용 및 운용 기술 개발,pdfplumber,8,MATCH,OK
+과학기술정보통신부,33,AI 기반 주파수 간섭분석 및 전파 예측기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,34,AI 반도체 실증 지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,35,AI 반도체 지원플랫폼,pdfplumber,8,MATCH,OK
+과학기술정보통신부,36,AI 분야 오픈소스 생태계 조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,37,AI 융합 OTT 글로벌 진출 확산 지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,38,AI+S&T 혁신 기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,39,AI-RAN 글로벌 선도 프로젝트(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,40,AI-네이티브 첨단바이오 자율실험실(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,41,AIxBio 혁신 연구거점 조성 시범사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,42,AI·SW 중심대학,pdfplumber,8,MATCH,OK
+과학기술정보통신부,43,AI·블록체인 융합 기반 자율형 고신뢰 핵심기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,44,AI기반 개방형 자율 디지털트윈 핵심기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,45,AI기반 맞춤형 케어서비스 융합선도(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,46,AI기반 안전 관리분야 디지털 트윈 선도,pdfplumber,8,MATCH,OK
+과학기술정보통신부,47,AI기반 어장 공간정보 빅데이터 플랫폼 구축 및 활용,pdfplumber,8,MATCH,OK
+과학기술정보통신부,48,AI기반 침해대응체계 구축(C-Brain),pdfplumber,8,MATCH,OK
+과학기술정보통신부,49,AI기반가상융합산업육성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,50,AI기반개방형5G-A융합서비스테스트베드구축운영(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,51,AI기반디지털가상핵융합로플랫폼개발사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,52,AI반도체 기반 데이터센터 고도화 선도기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,53,AI반도체를 활용한 K-클라우드 기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,54,AI반도체첨단이종집적기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,55,AI산업육성,pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,56,AI생태계 보안 내재화 핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,57,AI선박 특화 플랫폼 및 애플리케이션 개발·실증,pdfplumber,8,MATCH,OK
+과학기술정보통신부,58,AI연구용컴퓨팅지원프로젝트(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,59,AI융합 지능형 농업 생태계 구축,pdfplumber,8,MATCH,OK
+과학기술정보통신부,60,AI응용제품 신속상용화 지원사업(보안·네트워크·생활 등),pdfplumber,8,MATCH,OK
+과학기술정보통신부,61,AI일상화확산,pdfplumber,8,MATCH,OK
+과학기술정보통신부,62,AI정밀의료SW선도기반조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,63,AI최고급신진연구자지원사업(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=25000,got=28000)|V3:RATE_MISMATCH(expected=277.8%,got=466.0%)"
+과학기술정보통신부,64,AI컴퓨팅 자원 활용 기반 강화,pdfplumber,8,MATCH,OK
+과학기술정보통신부,65,AI클라우드 경쟁력강화 기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,66,AI통합바우처,pdfplumber,8,MATCH,OK
+과학기술정보통신부,67,AI혁신을 위한 데이터 안전 활용 지원 사업,pdfplumber,8,MATCH,OK
+과학기술정보통신부,68,AI활용 미인증 기자재 온라인 모니터링 시스템 구축,pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,69,AX 혁신기업 창의 기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,70,AX실증밸리조성(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,71,ICT 전략융합 R%26D 바우처 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,72,ICT기반 디지털서비스 탄소중립 혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,73,ICT융합 지능 디바이스 개발 활성화 및 확산 기반구축(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,74,K-AI 네트워크 경쟁력 강화 사업,pdfplumber,8,MATCH,OK
+과학기술정보통신부,75,K-Health 국민의료 AI서비스 및 산업생태계 구축,pdfplumber,8,MATCH,"V3:RATE_MISMATCH(expected=-33.3%,got=33.3%)"
+과학기술정보통신부,76,PIM인공지능반도체핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,77,"SW컴퓨팅산업원천기술개발(R&D,정보화)",pdfplumber,8,MATCH,OK
+과학기술정보통신부,78,World Best LLM 데이터 활용 지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,79,가상융합기반피지컬AI핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,80,가상융합지능화핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,81,강원 의료 AX 산업 실증 허브 조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,82,거대인공신경망인공지능반도체SW기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,83,건전정보문화조성(정보화),pdfplumber,8,MATCH,OK
+과학기술정보통신부,84,경량·저전력 AI 한계극복기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,85,경쟁형 AI혁신인재 성장 지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,86,고성능 AI(Hyper-AI) 네트워크 기반조성 사업,pdfplumber,8,MATCH,OK
+과학기술정보통신부,87,공공AX프로젝트,pdfplumber,8,MATCH,OK
+과학기술정보통신부,88,공공행정서비스혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,89,공존가능한 신뢰 AI를 위한 AI Safety 기술개발,pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,90,과학기술혁신인재양성(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,91,과학기술혁신정책 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,92,광주 AI 실증도시 실현(기본계획수립 용역비),pdfplumber,8,MATCH,OK
+과학기술정보통신부,93,광주과학기술원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=19226,got=22976)|V3:RATE_MISMATCH(expected=19.0%,got=23.5%)"
+과학기술정보통신부,94,국가 AI데이터센터 고도화,pdfplumber,8,MATCH,OK
+과학기술정보통신부,95,국가 NPU전용 컴퓨팅센터 광주 설립(설계비),pdfplumber,8,MATCH,OK
+과학기술정보통신부,96,국가 데이터 인프라 기반 데이터 혁신(Data-X) 지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,97,국가 플래그십 초고성능컴퓨팅 인프라 고도화 사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,98,국가과학기술연구회 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,99,국가수리과학연구소 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,100,국가지식정보 연계 및 활용 촉진(정보화),pdfplumber,8,MATCH,OK
+과학기술정보통신부,101,국방인공지능핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,102,국산 AI 반도체 기반 마이크로 데이터센터 확산(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,103,국산NPU기반 AI CCTV 전환,pdfplumber,8,MATCH,OK
+과학기술정보통신부,104,글로벌제조융합SW개발및실증(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,105,나노·소재기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,106,대구경북과학기술원 시설 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,107,대구경북과학기술원 연구 운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,108,대학디지털교육역량강화,pdfplumber,8,MATCH,OK
+과학기술정보통신부,109,데이터 활용 의료·건강 생태계조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,110,데이터 활용확산 정책지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,111,데이터경제인프라구축,pdfplumber,8,MATCH,OK
+과학기술정보통신부,112,데이터기반산업경쟁력강화,pdfplumber,8,MATCH,OK
+과학기술정보통신부,113,데이터센터네트워크인프라기술선도사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,114,동남권원자력의학원연구운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,115,동대구 벤처벨리 AI테크포트 구축,pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,116,디지털 AI세포 구축(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,117,디지털 질서 기반 구축 및 글로벌 확산 지원,pdfplumber,8,"MISMATCH(plumber=26993.0,pymupdf=27643.0)","V2:ARITHMETIC_MISMATCH(expected=21236,got=21886)|V3:RATE_MISMATCH(expected=368.9%,got=380.2%)"
+과학기술정보통신부,118,디지털 혁신 기술 기반 K-CareNetwork,pdfplumber,8,MATCH,OK
+과학기술정보통신부,119,디지털미디어이노베이션기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,120,디지털배움터(세종),pdfplumber,8,MATCH,OK
+과학기술정보통신부,121,디지털배움터(자율),pdfplumber,8,MATCH,OK
+과학기술정보통신부,122,디지털배움터(제주),pdfplumber,8,MATCH,OK
+과학기술정보통신부,123,디지털분야글로벌인재양성(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,124,디지털선도기술 핵심인재양성(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,125,디지털역량강화교육,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=-24563,got=-17983)|V3:RATE_MISMATCH(expected=-63.5%,got=-56.0%)"
+과학기술정보통신부,126,디지털전문·융합인재양성,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=35436,got=40436)|V3:RATE_MISMATCH(expected=63.6%,got=79.7%)"
+과학기술정보통신부,127,디지털트윈 융합 의료혁신 선도사업,pdfplumber,8,MATCH,OK
+과학기술정보통신부,128,디지털헬스케어 기반 AI 융합혁신 센터 구축,pdfplumber,8,MATCH,OK
+과학기술정보통신부,129,디지털혁신기술국제공동연구(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,130,미래디지털인재양성및저변확대,pdfplumber,8,MATCH,OK
+과학기술정보통신부,131,민관협력기반AI휴머노이드원천기술고도화(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,132,바이오.의료기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,133,반도체원천기술개발사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,134,범정부 인공지능 공통기반 구현(정보화),pdfplumber,8,MATCH,OK
+과학기술정보통신부,135,복합지능 자율행동체 SW 핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,136,불법마약류 대응을 위한 현장기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,137,빅데이터기반생활전자파예측기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,138,사람중심인공지능핵심원천기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,139,생성AI선도인재양성(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=18300,got=21800)|V3:RATE_MISMATCH(expected=210.3%,got=419.0%)"
+과학기술정보통신부,140,생체노화리프로그래밍원천기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,141,세계김치연구소연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,142,소프트웨어인재키움,pdfplumber,8,MATCH,OK
+과학기술정보통신부,143,스마트 엣지 디바이스 기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,144,스마트물류 기술 실증화,pdfplumber,8,MATCH,OK
+과학기술정보통신부,145,스마트빌리지보급및확산(세종),pdfplumber,8,MATCH,OK
+과학기술정보통신부,146,스마트빌리지보급및확산(자율),pdfplumber,8,MATCH,OK
+과학기술정보통신부,147,스마트팜 다부처 패키지 혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,148,신종 보이스피싱 조기탐지 기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,149,실세계능동형에이전틱AI기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,150,연합학습기반 신약개발 가속화 프로젝트(K-MELLODDY)(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,151,오픈랜실증단지조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,152,온디바이스AI기반자율협업IoT및디바이스핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,153,우편물류기술연구개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,154,울산과학기술원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=28629,got=36129)|V3:RATE_MISMATCH(expected=29.3%,got=40.1%)"
+과학기술정보통신부,155,융합서비스 글로벌시장 진출지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,156,의료 AI 반도체 전문인력 양성센터 구축,pdfplumber,8,MATCH,OK
+과학기술정보통신부,157,의료AI혁신생태계조성(닥터앤서3.0),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=4100,got=8100)|V3:RATE_MISMATCH(expected=65.1%,got=352.2%)"
+과학기술정보통신부,158,인간-AI 협업형 LAM 개발·글로벌 실증(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,159,인간인지기반 AI 핵심원천기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,160,인간지향적차세대도전형AI기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,161,인공지능 신뢰성 혁신 실증사업,pdfplumber,8,MATCH,OK
+과학기술정보통신부,162,인공지능반도체SW통합플랫폼기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,163,인공지능융합혁신인재양성(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,164,인공지능첨단유망기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,165,자율주행 기술개발 혁신사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,166,자율행동체 온디바이스 응용 지원 핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,167,재난안전혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,168,저궤도 군집 위성통신용 지능형 지상국 핵심기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,169,전국민 AI활용서비스 개발환경 조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,170,"정보보호핵심원천기술개발(R&D,정보화)",pdfplumber,8,MATCH,OK
+과학기술정보통신부,171,정보통신 기반보호 강화(정보화),pdfplumber,8,MATCH,OK
+과학기술정보통신부,172,정보통신방송혁신인재양성(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,173,제조업 AI융합 기반 조성,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=-4125,got=-125)|V3:RATE_MISMATCH(expected=-29.5%,got=-1.3%)"
+과학기술정보통신부,174,지능형 홈 산업 육성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,175,지속가능한 데이터센터 산업 발전 지원,pdfplumber,8,MATCH,OK
+과학기술정보통신부,176,지역거점AX혁신기술개발(R&D),pdfplumber,8,"MISMATCH(plumber=7920.0,pymupdf=11020.0)",OK
+과학기술정보통신부,177,지역디지털인재양성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,178,지역특화 AI 공간컴퓨팅 육성사업,pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,179,차세대 AI+S&T 기반기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,180,차세대 네트워크 AI파운데이션 모델(NFM) 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,181,차세대 네트워크 선도 연구시험망 구축운영(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,182,차세대 특화망 융합산업 활성화 기반구축,pdfplumber,8,MATCH,OK
+과학기술정보통신부,183,차세대네트워크(6G) 산업기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,184,차세대생성AI기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,185,차세대지능형반도체기술개발(설계)(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,186,첨단신약 타겟 발굴 검증 및 기반기술 개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,187,초거대AI 클라우드팜 실증 및 AI 확산 환경조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,188,초거대산업AI연구지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,189,초고층 복합시설 복합재난관리 디지털플랫폼 기술개발,pdfplumber,8,MATCH,OK
+과학기술정보통신부,190,최고급AI해외인재유치지원(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+과학기술정보통신부,191,치매의료기술연구개발사업(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,192,칩렛기반저전력온디바이스AI반도체기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,193,컴퓨팅자원집중형인공지능응용기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,194,클라우드컴퓨팅산업육성(정보화),pdfplumber,8,MATCH,OK
+과학기술정보통신부,195,피지컬AI선도기술개발(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,196,한국건설기술연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,197,한국과학기술연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,198,한국과학기술원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=63721,got=78721)|V3:RATE_MISMATCH(expected=27.3%,got=36.1%)"
+과학기술정보통신부,199,한국과학기술정보연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,200,한국기계연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,201,한국기초과학지원연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,202,한국뇌연구원 연구운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,203,한국산업은행출자(AI컴퓨팅 인프라 확충),pdfplumber,8,MATCH,OK
+과학기술정보통신부,204,한국생명공학연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,205,한국생산기술연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,206,한국식품연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,207,한국에너지기술연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,208,한국원자력연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,209,한국재료연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,210,한국전자통신연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,211,한국지질자원연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,212,한국철도기술연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,213,한국표준과학연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,214,한국핵융합에너지연구원 연구 운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,215,한국화학연구원연구운영비지원(R&D),pdfplumber,8,MATCH,OK
+과학기술정보통신부,216,해양문화도시 기반의 에이지테크 실증거점 조성,pdfplumber,8,MATCH,OK
+과학기술정보통신부,217,"해킹바이러스대응체계고도화(정보화,출연)",pdfplumber,8,MATCH,OK
+과학기술정보통신부,218,협업지능 피지컬AI 기반 SW플랫폼 연구개발 생태계 조성(R&D),pdfplumber,8,MATCH,OK
+관세청,219,관세행정정보관리(정보화),pdfplumber,8,MATCH,OK
+교육부,220,4단계 두뇌한국21 사업,pdfplumber,8,"MISMATCH(plumber=541546.0,pymupdf=523764.0)",OK
+교육부,221,AI 디지털 유니버시티 혁신교육 플랫폼 구축(정보화),pdfplumber,8,MATCH,OK
+교육부,222,가상실험실습 학습콘텐츠 공유 플랫폼 구축(정보화),pdfplumber,8,MATCH,OK
+교육부,223,국립대학육성사업,pdfplumber,8,MATCH,OK
+교육부,224,대학생 AI 기본 교육 지원,pdfplumber,8,MATCH,OK
+교육부,225,대학정보공시 제도 운영(정보화),pdfplumber,8,MATCH,OK
+교육부,226,산학연협력 고도화 지원,pdfplumber,8,MATCH,OK
+교육부,227,소프트웨어인재양성기반구축,pdfplumber,8,MATCH,OK
+교육부,228,학생교육 교류 지원,pdfplumber,8,MATCH,OK
+교육부,229,한국장학재단 출연,pdfplumber,8,MATCH,OK
+교육부,230,한국형 온라인 공개강좌 콘텐츠개발 및 활용 활성화,pdfplumber,8,MATCH,OK
+국가데이터처,231,통계DB통합및포털서비스(정보화),pdfplumber,8,MATCH,OK
+국가데이터처,232,통계교육지원,pdfplumber,8,MATCH,OK
+국가데이터처,233,통계데이터 분석 및 활용 지원(정보화),pdfplumber,8,MATCH,OK
+국가데이터처,234,통계센터 및 교육시설 운영,pdfplumber,8,MATCH,OK
+국가데이터처,235,통계연구개발지원,pdfplumber,8,MATCH,OK
+국가유산청,236,국가유산 지능형 첨단보존 기술개발(R&D),pdfplumber,8,MATCH,OK
+국민권익위원회,237,국민소통시스템 구축 및 운영(정보화),pdfplumber,8,MATCH,OK
+국방부,238,AI응용제품 신속 상용화 지원사업(국방),pdfplumber,8,MATCH,OK
+국방부,239,국내외 전문 군사교육,pdfplumber,8,MATCH,OK
+국방부,240,국방ICT혁신기술,pdfplumber,7,MATCH,OK
+국방부,241,민군기술협력(R&D)(국방부),pdfplumber,8,MATCH,OK
+국방부,242,전투발전연구,pdfplumber,7,MATCH,OK
+국방부,243,정보체계개발유지(정보화),pdfplumber,7,SINGLE_PLUMBER,OK
+국방부,244,정보통신기반체계구축(정보화),pdfplumber,8,MATCH,OK
+국세청,245,국세정보분석시스템 운영(정보화),pdfplumber,8,MATCH,OK
+국세청,246,국세행정지원시스템 운영(정보화),pdfplumber,8,MATCH,OK
+국세청,247,엔티스 전산시스템 운영(정보화),pdfplumber,8,MATCH,OK
+국토교통부,248,AIXR기반비행장원격관제운용기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,249,AI데이터중심의화물차운송안전향상기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,250,AI모빌리티 시범도시 조성,pymupdf_pass1,7,SINGLE_PYMUPDF,OK
+국토교통부,251,AI응용제품 신속상용화 지원사업(국토·교통),pdfplumber,8,"MISMATCH(plumber=46000.0,pymupdf=31500.0)",OK
+국토교통부,252,AI진단기반항공기로봇검사및정비기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,253,건물에너지소비데이터통합관리기반구축(R&D),pdfplumber,8,MATCH,OK
+국토교통부,254,건설 전주기 안전혁신 기술개발 사업(R&D),pymupdf_pass1,6,SINGLE_PYMUPDF,OK
+국토교통부,255,건설산업정보시스템구축및운영(정보화),pdfplumber,8,MATCH,OK
+국토교통부,256,건축정보시스템구축및운영(정보화),pdfplumber,8,MATCH,OK
+국토교통부,257,공간지식추론엔진기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,258,공동주택건설 생산성 혁신을 위한 다용도-건설작업 로봇설계 및 통합관리기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,259,공항조류탐지및한국형조류관리핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,260,과적단속 효율화를 위한 화물차중량정보 플랫폼 구축 및 실증기술개발사업(R&D),pdfplumber,8,MATCH,OK
+국토교통부,261,광역단위노후건축물디지털안전워치기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,262,교통사고유발도로노면위험요소저감기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,263,국토교통DNA플러스융합기술대학원육성사업(R&D),pdfplumber,8,MATCH,OK
+국토교통부,264,국토이용정보체계구축및운영(정보화),pdfplumber,8,MATCH,OK
+국토교통부,265,국토지형관리(정보화),pdfplumber,8,MATCH,OK
+국토교통부,266,대심도장대터널(GTX등)의재난대응복합훈련장개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,267,데이터기반철도시스템안전평가 예측기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,268,디지털기반건축시공및안전감리기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,269,디지털도로기반 클라우드형 AI-ITS센터플랫폼 운영관리 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+국토교통부,270,디지털트윈국토정보보안기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,271,디지털트윈기반GTX환승안전및혁신기술개발사업(R&D),pdfplumber,8,MATCH,OK
+국토교통부,272,무안공항 차세대 전력망 구축,pdfplumber,8,MATCH,OK
+국토교통부,273,빅데이터기반인공지능도시계획기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,274,빅데이터기반철도네트워크설계및운영기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,275,스마트 빌딩핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,276,스마트시티인프라AIoT핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,277,스마트시티확산사업,pdfplumber,8,"MISMATCH(plumber=28115.0,pymupdf=31615.0)","V3:RATE_MISMATCH(expected=62.4%,got=82.6%)"
+국토교통부,278,스마트철도물류혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,279,운전자페달오조작방지및평가기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,280,자율자동차 상용화,pdfplumber,8,"MISMATCH(plumber=9429.0,pymupdf=9829.0)","V2:ARITHMETIC_MISMATCH(expected=75,got=475)|V3:RATE_MISMATCH(expected=0.8%,got=5.1%)"
+국토교통부,281,자율주행글로벌혁신클러스터연구개발사업(R&D),pdfplumber,8,MATCH,V4:NEW_BUT_HAS_2025_BUDGET
+국토교통부,282,지역단위 재난위험도 AI시뮬레이션기반 재난안전관리 기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,283,지역특화형자율주행서비스모델및실증기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+국토교통부,284,철도차량차륜자동검사시스템기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,285,철도치안관리,pdfplumber,8,MATCH,OK
+국토교통부,286,초고층 복합시설 복합재난관리 디지털플랫폼 기술개발(R&D),pdfplumber,8,MATCH,OK
+국토교통부,287,초연결지능도시핵심기반기술개발(R&D),pdfplumber,8,MATCH,OK
+금융위원회,288,FIU전산망구축운영(정보화),pdfplumber,8,MATCH,OK
+금융위원회,289,국민성장펀드,pdfplumber,8,MATCH,OK
+금융위원회,290,신용정보(정보화),pdfplumber,8,MATCH,OK
+기상청,291,기상업무지원기술개발연구(R&D),pdfplumber,8,MATCH,OK
+기상청,292,기후위기 대응 국가 기후예측시스템 개발(R&D),pdfplumber,8,MATCH,OK
+기상청,293,선진예보시스템 구축 및 운영(정보화),pdfplumber,8,MATCH,OK
+기획예산처,294,디지털예산회계시스템 운영(정보화),pdfplumber,8,"MISMATCH(plumber=21941.0,pymupdf=22317.0)","V2:ARITHMETIC_MISMATCH(expected=1171,got=1547)|V3:RATE_MISMATCH(expected=5.6%,got=7.4%)"
+기후에너지환경부,295,AI기반 분산전력망 산업육성,pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,296,AI기반무탄소에너지활용화학기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,297,AI 기반 분산·예비전력 안전관리 통합 플랫폼 개발 및 실증(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,298,AI응용제품 신속 상용화 지원사업(환경),pdfplumber,8,"MISMATCH(plumber=50000.0,pymupdf=30500.0)",OK
+기후에너지환경부,299,K-그리드 인재·창업 밸리,pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,300,광역상수도 안정화,pdfplumber,8,"MISMATCH(plumber=73643.0,pymupdf=48705.0)","V2:ARITHMETIC_MISMATCH(expected=15009,got=-9929)"
+기후에너지환경부,301,국가하천유지보수,pdfplumber,8,MATCH,OK
+기후에너지환경부,302,국립생태원 출연,pdfplumber,8,MATCH,OK
+기후에너지환경부,303,극한지스마트광역탐사를위한로봇-ICT융합기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,304,기후변화 적응 수재해 관리 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,305,기후변화 적응을 위한 생태계 복원 및 관리 기술개발사업,pdfplumber,8,MATCH,OK
+기후에너지환경부,306,대기오염측정망 구축·운영,pdfplumber,8,"MISMATCH(plumber=47356.0,pymupdf=48182.0)","V2:ARITHMETIC_MISMATCH(expected=-4148,got=826)"
+기후에너지환경부,307,데이터센터탄소중립을위한열관리기술개발(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,308,디지털 담수화 플랜트 농축수 자원화 기술개발사업,pdfplumber,8,MATCH,OK
+기후에너지환경부,309,무탄소에너지핵심기술개발사업(R&D),pdfplumber,8,SINGLE_PLUMBER,"V2:ARITHMETIC_MISMATCH(expected=9645,got=10870)"
+기후에너지환경부,310,물산업정책 및 국제협력,pdfplumber,8,"MISMATCH(plumber=6919.0,pymupdf=7919.0)","V2:ARITHMETIC_MISMATCH(expected=1877,got=2877)"
+기후에너지환경부,311,미래변화 대응 수자원 안정성 확보 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,312,블록체인 기반 살생물제 정보 지능형 공정관리 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,313,사업장 미세먼지 관리사업,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=10474,got=15125)"
+기후에너지환경부,314,상수도정보화시스템구축(정보화),pdfplumber,8,"MISMATCH(plumber=2515.0,pymupdf=2215.0)","V2:ARITHMETIC_MISMATCH(expected=-214,got=-514)"
+기후에너지환경부,315,생물다양성 보전 및 관리,pdfplumber,8,"MISMATCH(plumber=3392.0,pymupdf=3321.0)","V2:ARITHMETIC_MISMATCH(expected=0,got=-71)"
+기후에너지환경부,316,세라믹분야 스마트그린 제조혁신 지원사업(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,317,수문조사시설 설치 및 개선,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=82350,got=3866)|V3:RATE_MISMATCH(expected=549.0%,got=4.1%)"
+기후에너지환경부,318,수열에너지 활용기술 및 에너지 믹스 기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,319,수용가전기설비원격점검및디지털안전기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,320,장거리 고압수소 배관망 고안전성 확보 및 AI기반 안전관리 기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,321,전력망물리기반AI모델개발및실증(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,322,차세대 해양·극지의 환경 및 생태계에 관한 기후예측시스템 개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+기후에너지환경부,323,폐의류 문제해결 플래그십 재활용 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,324,환경보건 빅데이터 구축 및 AI 활용 고도화 기술개발(R&D),pdfplumber,8,MATCH,OK
+기후에너지환경부,325,환경정보 융합빅데이터 플랫폼 구축(정보화),pdfplumber,8,MATCH,OK
+기후에너지환경부,326,환경정보화기반구축(정보화),pdfplumber,8,"MISMATCH(plumber=3103.0,pymupdf=2923.0)","V2:ARITHMETIC_MISMATCH(expected=64,got=-116)"
+기후에너지환경부,327,환경행정 정보서비스 구축(정보화),pdfplumber,8,"MISMATCH(plumber=5487.0,pymupdf=4788.0)","V2:ARITHMETIC_MISMATCH(expected=1110,got=411)"
+농림축산식품부,328,AI응용제품 신속 상용화 지원사업(농업),pdfplumber,8,MATCH,OK
+농림축산식품부,329,AX기반지능형농작업협업산업화기술개발(R&D),pdfplumber,8,MATCH,OK
+농림축산식품부,330,K-수직농장세계화프로젝트(R&D),pdfplumber,8,MATCH,OK
+농림축산식품부,331,검역본부정보화(정보화),pdfplumber,8,MATCH,OK
+농림축산식품부,332,고부가가치 식품기술개발(R&D),pdfplumber,8,MATCH,OK
+농림축산식품부,333,국가 농업 AX플랫폼,pdfplumber,8,MATCH,OK
+농림축산식품부,334,농업농촌국민체감AX전환기술개발(R&D),pdfplumber,8,MATCH,OK
+농림축산식품부,335,반려동물난치성질환극복기술개발(R&D),pdfplumber,8,MATCH,OK
+농림축산식품부,336,스마트팜다부처패키지혁신기술개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,337,AI기반작물모니터링및진단플랫폼개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,338,국경이동성해충의국제발생예측및방제기술개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,339,농업기술정보화(정보화),pdfplumber,7,MATCH,OK
+농촌진흥청,340,농작업안전관리기술및웨어러블편이장비개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,341,데이터기반농업관측을위한위성영상활용기술개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,342,스마트팜다부처패키지혁신기술개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,343,지능형농업로봇핵심기반기술개발(R&D),pdfplumber,7,MATCH,OK
+농촌진흥청,344,특용작물유래천연활성바이오소재생산및활용기술개발(R&D),pdfplumber,7,MATCH,OK
+대법원,345,등기업무전산화(정보화),pdfplumber,8,MATCH,OK
+대법원,346,사법업무 전산화(정보화),pdfplumber,7,MATCH,OK
+문화체육관광부,347,4차산업혁명대비 국어빅데이터 구축,pdfplumber,8,MATCH,OK
+문화체육관광부,348,AI기반 관광 혁신 기술개발(R&D),pdfplumber,8,MATCH,OK
+문화체육관광부,349,개인운동기록 활용 기술개발(R&D),pdfplumber,8,MATCH,OK
+문화체육관광부,350,국학진흥 정책기반 조성,pdfplumber,8,MATCH,OK
+문화체육관광부,351,문화공간 AX 전환을 위한 차세대 Culture Tech 기술개발(R&D),pdfplumber,8,MATCH,OK
+문화체육관광부,352,문화기술 전문인력양성(R&D),pdfplumber,8,MATCH,OK
+문화체육관광부,353,문화예술 온톨로지 기반 LLM연계 기술개발(R&D),pdfplumber,8,MATCH,OK
+문화체육관광부,354,신기술융합콘텐츠산업 육성,pdfplumber,8,MATCH,OK
+문화체육관광부,355,인공지능 기반 공연예술 안전환경 구축 핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+문화체육관광부,356,저작권 및 AI 산업 상생협력 지원,pdfplumber,8,MATCH,OK
+문화체육관광부,357,저작권보호활동 활성화,pdfplumber,8,MATCH,OK
+문화체육관광부,358,한국문화정보원 운영(정보화),pdfplumber,8,MATCH,OK
+방송미디어통신위원회,359,디지털미디어이노베이션기술개발(R&D),pdfplumber,8,MATCH,OK
+방송미디어통신위원회,360,방송콘텐츠 진흥,pdfplumber,8,MATCH,OK
+방송미디어통신위원회,361,안전한 AI 활용 기반 조성,pdfplumber,8,SINGLE_PLUMBER,OK
+방송미디어통신위원회,362,지능정보사회 이용자보호 환경조성,pdfplumber,8,MATCH,OK
+방위사업청,363,국방AI선도 연구협력(R&D),pdfplumber,8,MATCH,OK
+법무부,364,검찰업무정보화(정보화),pdfplumber,8,MATCH,OK
+법무부,365,법률구조,pdfplumber,8,MATCH,OK
+법무부,366,법무행정정보화(정보화),pdfplumber,8,MATCH,OK
+법무부,367,재범징후의 선제적 감지 및 대응력 강화기술 연구개발사업(R&D),pdfplumber,8,MATCH,OK
+법무부,368,첨단범죄및디지털수사(정보화),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=12142,got=2424)|V3:RATE_MISMATCH(expected=8490.9%,got=24.6%)"
+법제처,369,법제업무정보화추진(정보화),pdfplumber,8,MATCH,OK
+병무청,370,병무행정정보화(정보화),pdfplumber,8,MATCH,OK
+보건복지부,371,AI 모델을 활용한 항체 바이오베터 개발 및 실증(R&D),pdfplumber,8,MATCH,OK
+보건복지부,372,AI기반수술로봇이노베이션랩구축및활용사업(R&D),pdfplumber,8,MATCH,OK
+보건복지부,373,AI응용제품 신속 상용화 지원(보건),pdfplumber,8,"MISMATCH(plumber=20000.0,pymupdf=13000.0)",OK
+보건복지부,374,AI응용제품 신속 상용화 지원(복지),pdfplumber,8,MATCH,OK
+보건복지부,375,K-AI 신약개발 전임상·임상 모델개발(R&D),pdfplumber,8,MATCH,OK
+보건복지부,376,구조기반 AI신약개발지원(R&D),pdfplumber,8,MATCH,OK
+보건복지부,377,국가 통합 바이오 빅데이터 구축(R&D),pdfplumber,8,MATCH,OK
+보건복지부,378,다기관-멀티모달 연합학습 기반 의료인공지능 기술 시범모델 개발(R&D),pdfplumber,8,MATCH,OK
+보건복지부,379,바이오헬스산업 육성 지원,pdfplumber,8,MATCH,OK
+보건복지부,380,발달장애디지털치료제개발(R&D),pdfplumber,8,MATCH,OK
+보건복지부,381,보건의료데이터 상호운용성 지원 기술개발(R&D),pdfplumber,8,MATCH,OK
+보건복지부,382,사회보장정보시스템 구축 및 운영(정보화),pdfplumber,8,MATCH,OK
+보건복지부,383,응급실 특화 AI기반 임상지원시스템 개발(R&D),pdfplumber,8,MATCH,OK
+보건복지부,384,의료 인공지능 특화 융합인재 양성 사업(R&D),pdfplumber,8,MATCH,OK
+보건복지부,385,의료데이터 중심병원 지원사업,pdfplumber,8,MATCH,OK
+보건복지부,386,지역거점AX혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+보건복지부,387,치매의료기술연구개발사업(R&D),pdfplumber,8,MATCH,OK
+보건복지부,388,치매전주기 데이터수집 및 빅데이터 통합시스템 구축사업(R&D),pdfplumber,8,MATCH,OK
+보건복지부,389,한국형 수술질향상 프로젝트(K-NSQIP)(R&D),pdfplumber,8,MATCH,OK
+보건복지부,390,한의약산업육성,pdfplumber,8,MATCH,OK
+산림청,391,AI 기반 임도 설계 및 유지관리 최적화 기술개발(R&D),pdfplumber,8,MATCH,OK
+산림청,392,고성능 목재수확 기계장비 개발(R&D),pdfplumber,8,MATCH,OK
+산림청,393,대형산불 대응 지능형 솔루션 기술개발(R&D),pdfplumber,8,MATCH,OK
+산림청,394,디지털 기반 산림 우수종자 생산공급 기술개발(R&D),pdfplumber,8,MATCH,OK
+산림청,395,산림과학연구(R&D),pdfplumber,8,MATCH,OK
+산림청,396,산림분야 그린바이오 미래형 가치사슬 기술개발(R&D),pdfplumber,8,MATCH,OK
+산림청,397,산불방지대책,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=-16122,got=27508)|V3:RATE_MISMATCH(expected=-15.9%,got=47.5%)"
+산림청,398,산사태 현장대응 기술개발(R&D),pdfplumber,8,MATCH,OK
+산림청,399,스마트 산림재해 대응(정보화),pdfplumber,8,MATCH,OK
+산림청,400,임업현장 맞춤형 푸드테크 기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,401,AI기반표적맞춤형의약품제조자율랩기술개발사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,402,AI응용제품 신속 상용화 지원사업(제조),pdfplumber,8,MATCH,OK
+산업통상부,403,AI자율제조SDM플랫폼기술개발사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,404,AX실증밸리조성(R&D),pdfplumber,8,MATCH,OK
+산업통상부,405,K-온디바이스AI반도체기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,406,K-치안수요기반피지컬AI조명핵심기술개발및실증(R&D),pdfplumber,8,MATCH,OK
+산업통상부,407,No-Code 제조기술 혁신 생태계 구축,pdfplumber,8,MATCH,OK
+산업통상부,408,PIM인공지능반도체핵심기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,409,SDV용AI가속기반도체기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,410,가전산업AX전환을위한AI핵심모듈및혁신제품화기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,411,국가로봇테스트필드사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,412,국가통합바이오빅데이터구축사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,413,기계장비산업기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,414,대한무역투자진흥공사,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=6823,got=12139)|V3:RATE_MISMATCH(expected=2.0%,got=3.7%)"
+산업통상부,415,로봇산업기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,416,멀티오믹스기반난치암맞춤형진단치료상용화기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,417,미래이차전지원료소재실증플랫폼기반구축,pdfplumber,8,MATCH,OK
+산업통상부,418,민관공동투자반도체고급인력양성(R&D),pdfplumber,8,MATCH,OK
+산업통상부,419,민군기술협력(R&D)(산업부),pdfplumber,8,MATCH,OK
+산업통상부,420,바이오산업개방형생태계조성촉진,pdfplumber,8,MATCH,OK
+산업통상부,421,반도체 첨단 패키징 선도기술개발 사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,422,범부처감염병방역체계고도화R&D사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,423,뿌리산업경쟁력강화지원,pdfplumber,8,MATCH,OK
+산업통상부,424,뿌리산업혁신공정장비개발사업(R&D),pdfplumber,8,MATCH,OK
+산업통상부,425,산업AI 솔루션 실증확산 지원,pdfplumber,8,MATCH,OK
+산업통상부,426,산업AI용데이터전처리자동화기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,427,산업기술국제협력(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=22346,got=23346)|V3:RATE_MISMATCH(expected=10.6%,got=11.2%)"
+산업통상부,428,산업단지환경조성,pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=22442,got=78542)|V3:RATE_MISMATCH(expected=5.8%,got=23.7%)"
+산업통상부,429,산업용무기·유기화합물제형물성예측AI파운데이션모델개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,430,산업혁신기반구축(R&D),pdfplumber,8,MATCH,OK
+산업통상부,431,산업혁신인재성장지원(R&D),pdfplumber,8,MATCH,OK
+산업통상부,432,산업현장문제해결형산업AI에이전트기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,433,섬유패션산업활성화기반마련,pdfplumber,8,MATCH,OK
+산업통상부,434,세포및유전자치료제제조공정고도화기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,435,소재부품산업기술개발기반구축(R&D),pdfplumber,8,MATCH,OK
+산업통상부,436,열공정특화제조AI파운데이션모델개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,437,의료데이터합성기술및의료인공지능기술기반디지털의료제품개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,438,자동차산업기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,439,자원안보를 위한 고부가가치 한국형 텅스텐 전주기 기술 개발 및 실증,pdfplumber,8,SINGLE_PLUMBER,OK
+산업통상부,440,자율형소프트로봇핵심기술국제공동연구(R&D),pdfplumber,8,MATCH,OK
+산업통상부,441,제조AI 데이터 벨류체인 구축,pdfplumber,8,MATCH,OK
+산업통상부,442,제조데이터표준·인공지능활용제품전주기탄소중립지원기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,443,제조특화 초거대 제조AI 서비스 개발 및 실증,pdfplumber,8,SINGLE_PLUMBER,OK
+산업통상부,444,조선해양산업기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,445,지식서비스산업기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,446,지역거점AX혁신기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,447,지역전략산업기반고도화(R&D),pdfplumber,8,MATCH,OK
+산업통상부,448,철강·금속 인공지능전환(AX) 실증센터 구축,pdfplumber,8,MATCH,OK
+산업통상부,449,철강산업 AI융합실증 허브 구축사업,pdfplumber,8,MATCH,OK
+산업통상부,450,첨단민군융합기술개발(R&D),pdfplumber,8,MATCH,OK
+산업통상부,451,한국형Manufacturing-X플랫폼표준모델개발및실증(R&D),pdfplumber,8,MATCH,OK
+소방청,452,119빅데이터 분석운영,pdfplumber,7,MATCH,OK
+소방청,453,소방정보시스템구축(정보화),pdfplumber,7,MATCH,OK
+소방청,454,위험물 시설 화재·폭발 사고 예방 및 대응 기술개발(R&D),pdfplumber,7,MATCH,OK
+식품의약품안전처,455,AI 기반 독성예측 평가기술 개발연구(R&D),pymupdf_pass1,7,SINGLE_PYMUPDF,OK
+식품의약품안전처,456,AI응용제품 신속 상용화 지원사업(식품·의료기기 등),pymupdf_pass1,7,SINGLE_PYMUPDF,OK
+식품의약품안전처,457,식의약품 안전정보체계 선진화(정보화),pymupdf_pass1,7,SINGLE_PYMUPDF,"V2:ARITHMETIC_MISMATCH(expected=3919,got=5227)|V3:RATE_MISMATCH(expected=28.4%,got=41.8%)"
+식품의약품안전처,458,신기술 적용 식품(푸드테크) 안전기술 지원(R&D),pymupdf_pass1,7,SINGLE_PYMUPDF,OK
+식품의약품안전처,459,중독자 데이터 기반 마약 중독 재활기술 개발연구(R&D),pymupdf_pass1,7,SINGLE_PYMUPDF,OK
+식품의약품안전처,460,컴퓨터모델링 기반 의료기기 평가체계 구축(R&D),pymupdf_pass1,7,SINGLE_PYMUPDF,OK
+외교부,461,외교업무 디지털 혁신(정보화),pdfplumber,8,MATCH,OK
+우주항공청,462,국제 거대전파망원경 건설 사업(R&D),pdfplumber,8,MATCH,OK
+우주항공청,463,우주전파재난 위험분석 및 대응기술 개발(R&D),pdfplumber,8,MATCH,OK
+우주항공청,464,한국항공우주연구원 연구 운영비 지원(R&D),pdfplumber,8,MATCH,OK
+우주항공청,465,항공AI 안전성 확보를 위한 자율임무 신뢰성 보증기술 개발(R&D),pdfplumber,8,MATCH,OK
+인사혁신처,466,국가인재개발 지능형 오픈 플랫폼 운영(정보화),pdfplumber,7,MATCH,OK
+인사혁신처,467,전자인사관리시스템운영(정보화),pdfplumber,7,MATCH,OK
+조달청,468,조달정보화(정보화),pdfplumber,8,MATCH,OK
+중소벤처기업부,469,ICT융합스마트공장보급확산,pdfplumber,8,MATCH,OK
+중소벤처기업부,470,데이터 인프라구축(정보화),pdfplumber,8,MATCH,OK
+중소벤처기업부,471,스마트 제조혁신 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+중소벤처기업부,472,신성장기반자금(융자),pdfplumber,8,MATCH,OK
+중소벤처기업부,473,재도약촉진,pdfplumber,8,MATCH,OK
+중소벤처기업부,474,중소기업 스마트 서비스 지원,pdfplumber,8,MATCH,OK
+중소벤처기업부,475,중소기업모태조합출자,pdfplumber,8,MATCH,OK
+중소벤처기업부,476,중소벤처행정정보화(정보화),pdfplumber,8,MATCH,OK
+중소벤처기업부,477,중소제조 특화 Multi AI Agent개발(R&D),pdfplumber,8,MATCH,OK
+중소벤처기업부,478,지역특화 제조데이터 활성화,pdfplumber,8,MATCH,OK
+중소벤처기업부,479,창업사업화지원,pdfplumber,8,MATCH,OK
+중소벤처기업부,480,창업성공패키지,pdfplumber,8,MATCH,OK
+중소벤처기업부,481,창업성장기술개발(R&D),pdfplumber,8,MATCH,OK
+중소벤처기업부,482,투·융자연계기술개발(R&D),pdfplumber,8,MATCH,OK
+중소벤처기업부,483,표준공정 기반 공정최적화 기술개발(R&D),pdfplumber,8,MATCH,OK
+중소벤처기업부,484,혁신창업사업화자금(융자),pdfplumber,8,MATCH,OK
+지식재산처,485,"지식재산 활용(사업화, 거래, 평가) 지원",pdfplumber,8,SINGLE_PLUMBER,"V2:ARITHMETIC_MISMATCH(expected=9845,got=7845)|V3:RATE_MISMATCH(expected=36.7%,got=29.2%)"
+질병관리청,486,공공기관 임무중심 감염병연구 다부처협력사업(R&D),pdfplumber,8,"MISMATCH(plumber=2246.0,pymupdf=1300.0)",OK
+질병관리청,487,국가 통합 바이오 빅데이터 구축 사업(R&D),pdfplumber,8,MATCH,OK
+질병관리청,488,국가통합바이오빅데이터구축사업Ⅱ(R&D),pdfplumber,8,MATCH,OK
+질병관리청,489,헬스케어 이종데이터 활용체계 및 인공지능 개발(R&D),pdfplumber,8,MATCH,OK
+해양경찰청,490,AI기반해상긴급상황접수및대응체계개발(R&D),pdfplumber,8,MATCH,OK
+해양경찰청,491,AI기반해양재난대응체계CDX기술개발(R&D),pdfplumber,8,MATCH,OK
+해양경찰청,492,차세대디지털VTS국제표준서비스및장비개발(R&D),pdfplumber,8,MATCH,OK
+해양경찰청,493,해양경찰정보화관리(정보화),pdfplumber,8,MATCH,OK
+해양경찰청,494,해양안전시스템구축관리(정보화),pdfplumber,8,MATCH,OK
+해양수산부,495,AI 기반 스마트 어업관리 시스템 개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,496,AI 완전자율운항선박 기술개발사업(R&D),pdfplumber,8,MATCH,OK
+해양수산부,497,AI응용제품 신속상용화 지원사업(해수),pdfplumber,8,"MISMATCH(plumber=45000.0,pymupdf=25000.0)",OK
+해양수산부,498,고품질준실시간해양그리드데이터서비스체계개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,499,국제사회 IUU어업 예방을 위한 원양어선전자모니터링기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+해양수산부,500,극지연구소 운영지원(R&D),pdfplumber,8,MATCH,OK
+해양수산부,501,남극해 급격한 온난화 대응 남극 해빙 예측 기술 개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,502,머신러닝 기반 해저면 특성 분류 기술개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,503,민군경 AI 기반 해양영상 융복합 분석기술 개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,504,생태계기반수산정책지원기술개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,505,선박해양플랜트연구소 운영지원(R&D),pdfplumber,8,MATCH,OK
+해양수산부,506,수출입물류항만-내륙연계기술개발(R&D),pdfplumber,8,SINGLE_PLUMBER,OK
+해양수산부,507,순환적응형연안침식관리기술개발(R&D),pdfplumber,8,"MISMATCH(plumber=9678.0,pymupdf=4000.0)","V2:ARITHMETIC_MISMATCH(expected=6690,got=1012)|V3:RATE_MISMATCH(expected=223.9%,got=33.8%)"
+해양수산부,508,스마트수산업 응용기술 국산화 및 실증연구(R&D),pdfplumber,8,MATCH,OK
+해양수산부,509,아열대 해양환경 적응 시나리오 개발 대응책 및 활용 체계 구축(R&D),pdfplumber,8,MATCH,OK
+해양수산부,510,양식생물 생물보안체계 구축을 위한 기술개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,511,유수식 디지털양식 혁신기술개발(R&D),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=2240,got=2440)"
+해양수산부,512,자율주행차 해상수출입서비스 기술개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,513,지능형 빅데이터 분석기반 해양환경누적영향평가 및 의사결정 지원기술개발사업(R&D),pdfplumber,8,MATCH,OK
+해양수산부,514,탄소제로 수중데이터센터 표준모델 개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,515,한국해양과학기술원운영지원(R&D),pdfplumber,8,"MISMATCH(plumber=82314.0,pymupdf=83164.0)","V2:ARITHMETIC_MISMATCH(expected=4191,got=5041)|V3:RATE_MISMATCH(expected=5.4%,got=6.5%)"
+해양수산부,516,한국형 연안재해 발생요인 예측기술 개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,517,해양공간 디지털트윈 적용 및 활용 기술개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,518,해양배터리 특화 데이터 허브 플랫폼 구축 기술 개발(R&D),pdfplumber,8,MATCH,OK
+해양수산부,519,해양수산 신산업 육성 및 기업투자유치 지원(지원),pdfplumber,8,MATCH,OK
+해양수산부,520,해양수산 융합형 전문인력양성사업(R&D),pdfplumber,8,MATCH,OK
+해양수산부,521,해양자원 탐사를 위한 무인체계 기술개발(R&D),pdfplumber,8,MATCH,OK
+행정안전부,522,공공데이터개방및이용활성화지원(정보화),pdfplumber,8,MATCH,OK
+행정안전부,523,공공부문 AI 서비스 지원(정보화),pdfplumber,8,MATCH,OK
+행정안전부,524,과학수사감정지원,pdfplumber,8,MATCH,OK
+행정안전부,525,데이터기반행정활성화(정보화),pdfplumber,8,MATCH,OK
+행정안전부,526,드론·SAR및디지털트윈연계급경사지위험성분석기술개발(R&D),pdfplumber,8,MATCH,OK
+행정안전부,527,범정부 인공지능 공통기반 구현(정보화),pdfplumber,8,MATCH,"V2:ARITHMETIC_MISMATCH(expected=1979,got=7371)|V3:RATE_MISMATCH(expected=36.7%,got=1979.0%)"
+행정안전부,528,재난및안전관리연구개발(R&D),pdfplumber,8,MATCH,OK
+행정안전부,529,재난안전 AI 관제체계 및 데이터 구축(정보화),pdfplumber,8,MATCH,OK
+행정안전부,530,재난안전부처협력기술개발(R&D),pdfplumber,8,MATCH,OK
+행정안전부,531,전자문서소통시스템(정보화),pdfplumber,8,MATCH,OK
+행정안전부,532,정보보호인프라확충(정보화),pdfplumber,8,MATCH,OK
+행정안전부,533,행정서비스통합포털운영(정보화),pdfplumber,8,MATCH,OK

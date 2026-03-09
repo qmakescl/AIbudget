@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# PDF 원본 (119MB, GitHub 용량 초과 — 별도 보관)
+# resource/budget_depts/*.pdf
+
+# 불필요 파일
+README_old.md
+main.py
+*.log
+.DS_Store
+
+#Agent
+.claude
