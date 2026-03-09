@@ -182,14 +182,16 @@ python dashboard/prepare_data.py
 ### 5. 대시보드 실행
 
 ```bash
-# Python 내장 서버 사용
-cd dashboard
-python -m http.server 8000
+uv run python serve.py
 ```
 
-→ 브라우저에서 `http://localhost:8000` 접속
+→ 브라우저가 자동으로 열리며 `http://localhost:8000` 에서 대시보드가 실행됩니다.
 
-또는 VS Code의 **Live Server** 확장을 사용하여 `dashboard/index.html`을 직접 열 수도 있습니다.
+포트를 변경하려면:
+
+```bash
+uv run python serve.py 9000
+```
 
 ### 6. GitHub Pages로 배포 (선택)
 
