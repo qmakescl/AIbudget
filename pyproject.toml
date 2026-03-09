@@ -1,7 +1,11 @@
 [project]
 name = "aibudget"
 version = "0.1.0"
-description = "Add your description here"
+description = "2026 정부 AI 예산 PDF 추출 및 대시보드"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pandas>=2.0.0",
+    "pdfplumber>=0.10.0",
+    "pymupdf>=1.23.0",
+]

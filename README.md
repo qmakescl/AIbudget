@@ -35,6 +35,7 @@
 
 ### Step 3: 데이터 정합성 검증
 >
+>~
 > *"pdf 파일에 있는 데이터가 제대로 전달되어 표시하는데 문제가 없는지 검토해줘"*
 
 - CSV → JSON 파이프라인 100% 일치 확인
@@ -136,29 +137,29 @@ AIbudget/
 
 ### 사전 요구사항
 
-- Python 3.10+
-- `uv` 또는 `pip` (패키지 매니저)
+- Python 3.12+
+- [`uv`](https://docs.astral.sh/uv/) (권장) 또는 `pip`
 
 ### 1. 프로젝트 클론
 
 ```bash
-git clone https://github.com/<your-username>/AIbudget.git
+git clone https://github.com/qmakescl/AIbudget.git
 cd AIbudget
 ```
 
 ### 2. 가상환경 설정 및 의존성 설치
 
 ```bash
-# uv 사용 시
-uv venv --python 3.12
-source .venv/bin/activate
-uv pip install pandas pdfplumber pymupdf
+# uv 사용 시 (권장) — 한 줄로 가상환경 생성 + 의존성 설치 완료
+uv sync
 
 # pip 사용 시
 python -m venv .venv
 source .venv/bin/activate
 pip install pandas pdfplumber pymupdf
 ```
+
+> `uv sync`는 `uv.lock`을 기반으로 정확한 버전을 설치하며, `.venv`가 없으면 자동 생성합니다.
 
 ### 3. PDF에서 데이터 추출 (선택)
 >
