@@ -119,9 +119,9 @@ def detect_column_structure(header_rows: list[list]) -> dict:
             mapping.setdefault("budget_2025", i)
         elif re.search(r"본예산|계획", t) and "budget_2025" not in mapping and "2026" not in t:
             mapping.setdefault("budget_2025", i)
-        elif re.search(r"요구|요청", t):
+        elif re.search(r"요구|요청|정부안", t):
             mapping.setdefault("budget_2026_req", i)
-        elif re.search(r"(조정|본예산|확정).*(B)|2026.*(B)|정부안", t, re.S):
+        elif re.search(r"(조정|본예산|확정).*(B)|2026.*(B)", t, re.S):
             mapping.setdefault("budget_2026", i)
         elif re.search(r"2026", t) and "budget_2026" not in mapping:
             mapping.setdefault("budget_2026", i)
@@ -631,6 +631,17 @@ def extract_project(
     # 신규사업이면 change_amount = budget_2026 (기존 누락 수정)
     if result["is_new"] and result.get("change_amount") is None:
         result["change_amount"] = result.get("budget_2026")
+
+    # 동결사업 보정: 원본 PDF에서 증감/증감률을 "-"로 표기한 경우 수학적으로 산출
+    # (예: 2025=3,000 / 2026=3,000 → PDF에 "-"로 표기 → None 추출 → 0으로 보정)
+    if not result["is_new"]:
+        b2026 = result.get("budget_2026")
+        actual_2025 = result.get("budget_2025_sup") or result.get("budget_2025")
+        if b2026 is not None and actual_2025 is not None:
+            if result.get("change_amount") is None:
+                result["change_amount"] = round(b2026 - actual_2025, 1)
+            if result.get("change_rate") is None and actual_2025 != 0:
+                result["change_rate"] = round((b2026 - actual_2025) / actual_2025 * 100, 1)
 
     # 사업설명 추출
     description = extract_description(pdf_path, local_start, local_end)

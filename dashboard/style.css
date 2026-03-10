@@ -93,9 +93,22 @@ body {
 /* KPIs */
 .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
 
 .kpi-title {
@@ -211,6 +224,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
 }
@@ -241,6 +256,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 .search-input {
@@ -250,7 +268,10 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 8px;
     width: 250px;
+    max-width: 100%;
+    min-width: 0;
     font-family: inherit;
+    box-sizing: border-box;
 }
 
 .table-wrapper {
@@ -265,6 +286,31 @@ table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
+}
+
+.dept-tip {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--text-secondary);
+    white-space: nowrap;
+}
+.dept-tip:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.dept-tooltip-box {
+    position: fixed;
+    z-index: 9999;
+    background: var(--card-bg, #1e2235);
+    border: 1px solid var(--border-color, #2d3251);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--text-primary, #e2e8f0);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    pointer-events: none;
+    white-space: nowrap;
 }
 
 /* Custom Scrollbar for all scrollable elements */
@@ -328,18 +374,15 @@ tbody tr:hover {
 
 .project-tooltip {
     display: none;
-    position: absolute;
-    left: calc(100% + 12px);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1000;
+    position: fixed;
+    z-index: 9999;
     background: var(--bg-panel);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 1rem 1.2rem;
     width: 360px;
-    max-height: 200px;
+    max-height: 220px;
     overflow-y: auto;
     font-size: 0.85rem;
     line-height: 1.6;
@@ -348,32 +391,7 @@ tbody tr:hover {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     white-space: pre-wrap;
     word-break: keep-all;
-    /* Removed pointer-events: none; so users can scroll inside it */
-}
-
-/* Bridge gap so mouse can move from text to tooltip without it disappearing */
-.project-tooltip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 100%;
-    width: 12px;
-    height: 100%;
-    background: transparent;
-}
-
-.project-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-    border: 6px solid transparent;
-    border-right-color: var(--border-color);
-}
-
-.project-name-cell:hover .project-tooltip {
-    display: block;
+    pointer-events: none;
 }
 
 [data-theme="light"] .project-tooltip {
@@ -562,6 +580,7 @@ tbody tr:hover {
     display: flex;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .cat-kpi-badge {
@@ -597,12 +616,100 @@ tbody tr:hover {
     white-space: normal;
 }
 
+@media (max-width: 900px) {
+    .dashboard-container {
+        padding: 1.25rem;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .kpi-value {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 768px) {
     .tab-nav {
         flex-wrap: wrap;
+        gap: 0.4rem;
     }
 
     .tab-btn {
         flex: 1 0 45%;
+        font-size: 0.9rem;
+        padding: 0.65rem 0.5rem;
     }
+}
+
+@media (max-width: 600px) {
+    .dashboard-container {
+        padding: 0.75rem;
+    }
+
+    .header {
+        padding: 1.2rem 1rem;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .kpi-value {
+        font-size: 1.5rem;
+    }
+
+    .glass-panel {
+        padding: 1rem;
+    }
+
+    .tab-btn {
+        flex: 1 0 45%;
+        font-size: 0.8rem;
+        padding: 0.55rem 0.4rem;
+    }
+
+    .tab-btn i {
+        display: none;
+    }
+
+    th, td {
+        padding: 0.65rem 0.5rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+    }
+}
+
+/* Dept Tab KPI Grid */
+.dept-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+    .dept-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .dept-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+.cat-badge-purple {
+    background: rgba(139, 92, 246, 0.15);
+    color: var(--purple);
+    border: 1px solid rgba(139, 92, 246, 0.3);
 }
